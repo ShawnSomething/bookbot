@@ -5,7 +5,7 @@ def get_book_text(file):
     num_words = 0
     for i in file_contents.split():
         num_words += 1
-    return print(f"{num_words} words found in the document")
+    return print(f"Found {num_words} total words")
 
 def count_characters(file):
     with open(file) as file:
@@ -19,4 +19,20 @@ def count_characters(file):
         else:
             char_dict[i] = 1
     
-    print(char_dict)
+    return char_dict
+
+def sort_on(dict):
+    return dict["num"]
+
+def sorts(file):
+    character_dict = count_characters(file)
+    new_list = []
+    for i in character_dict:
+         if i.isalpha():
+            new_list.append({"char": i, "num": character_dict[i]})
+
+    sorted_new_list = sorted(new_list, key=sort_on, reverse=True)
+
+    for item in sorted_new_list:
+        print(f"{item['char']}: {item['num']}")
+
