@@ -1,17 +1,18 @@
 def get_book_text(file):
     with open(file) as file:
         file_contents = file.read()
-    
+        return file_contents
+
+def count_words(file):
+    text = get_book_text(file)
     num_words = 0
-    for i in file_contents.split():
+    for i in text.split():
         num_words += 1
     return print(f"Found {num_words} total words")
 
 def count_characters(file):
-    with open(file) as file:
-        file_contents = file.read()
-    
-    lower_case = file_contents.lower()
+    text = get_book_text(file)
+    lower_case = text.lower()
     char_dict = {}
     for i in lower_case:
         if i in char_dict:

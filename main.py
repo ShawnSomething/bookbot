@@ -1,7 +1,7 @@
-from stats import get_book_text, count_characters, sorts
+from stats import get_book_text, count_words, count_characters, sorts
 
 def main():
-    get_book_text("books/frankenstein.txt") 
+    count_words("books/frankenstein.txt") 
     sorts("books/frankenstein.txt")
 
 
